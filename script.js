@@ -8,3 +8,25 @@
                 </div>
             </div>
 */}
+
+class Countries{
+    countries = [];
+
+    getCountries = async() =>{
+        let response = await fetch("https://restcountries.com/v3.1/all")
+       this.countries = await response.json();
+        
+    }
+
+    render = async() => {
+        await this.getCountries();
+        for (const country of this.countries) {
+            console.log(country);
+            
+        }
+    }
+}
+
+let country = new Countries;
+country.render();
+    
